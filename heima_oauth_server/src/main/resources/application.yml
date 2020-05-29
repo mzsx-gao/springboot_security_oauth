@@ -1,0 +1,18 @@
+server:
+  port: 9001
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/security?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true
+    username: root
+    password: root
+  main:
+    #这个表示允许我们覆盖OAuth2放在容器中的bean对象，一定要配置
+    allow-bean-definition-overriding: true
+mybatis:
+  type-aliases-package: com.itheima.domain
+  configuration:
+    map-underscore-to-camel-case: true
+logging:
+  level:
+    com.itheima: debug
