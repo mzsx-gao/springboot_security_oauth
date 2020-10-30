@@ -1,9 +1,9 @@
-package com.itheima.service.impl;
+package com.itheima.server.service.impl;
 
-import com.itheima.domain.SysRole;
-import com.itheima.domain.SysUser;
-import com.itheima.mapper.UserMapper;
-import com.itheima.service.UserService;
+import com.itheima.server.domain.SysRole;
+import com.itheima.server.domain.SysUser;
+import com.itheima.server.mapper.UserMapper;
+import com.itheima.server.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;

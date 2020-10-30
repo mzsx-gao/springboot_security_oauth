@@ -1,6 +1,6 @@
-package com.itheima.config;
+package com.itheima.server.config;
 
-import com.itheima.service.UserService;
+import com.itheima.server.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,7 +12,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Configuration
-@EnableWebSecurity(debug = true)
+@EnableWebSecurity(debug = false)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
@@ -38,8 +38,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .anyRequest().authenticated()
                 .and()
+                //指定认证页面可以匿名访问
                 .formLogin().loginProcessingUrl("/login").permitAll()
                 .and()
+                //关闭跨站请求防护
                 .csrf().disable();
     }
 

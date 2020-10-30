@@ -1,11 +1,10 @@
-package com.itheima.config;
+package com.itheima.server.config;
 
-import com.itheima.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
@@ -35,7 +34,7 @@ public class OauthServerConfig extends AuthorizationServerConfigurerAdapter {
 
     //认证业务对象
     @Autowired
-    private UserService userService;
+    private UserDetailsService userDetailsService;
 
     //客户端信息来源
     @Bean
@@ -62,13 +61,6 @@ public class OauthServerConfig extends AuthorizationServerConfigurerAdapter {
     }
 
 
-    //检查token的策略
-    @Override
-    public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
-        security.allowFormAuthenticationForClients();
-        security.checkTokenAccess("isAuthenticated()");
-    }
-
     /**
      * 指定客户端信息的数据来源:本例子是从数据库中，测试时可用从内存中
      */
@@ -87,11 +79,18 @@ public class OauthServerConfig extends AuthorizationServerConfigurerAdapter {
 //                .secret(new BCryptPasswordEncoder().encode("123"));
     }
 
+    //检查token的策略
+    @Override
+    public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
+        security.allowFormAuthenticationForClients();
+        security.checkTokenAccess("isAuthenticated()");
+    }
+
     //OAuth2的主配置信息
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
         endpoints
-                .userDetailsService(userService)
+                .userDetailsService(userDetailsService)
                 .approvalStore(approvalStore())
                 .authenticationManager(authenticationManager)
                 .authorizationCodeServices(authorizationCodeServices())

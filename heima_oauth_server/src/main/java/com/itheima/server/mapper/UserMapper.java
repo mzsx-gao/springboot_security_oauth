@@ -1,6 +1,6 @@
-package com.itheima.mapper;
+package com.itheima.server.mapper;
 
-import com.itheima.domain.SysUser;
+import com.itheima.server.domain.SysUser;
 import org.apache.ibatis.annotations.Many;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
@@ -14,7 +14,7 @@ public interface UserMapper{
     @Results({
             @Result(id = true, property = "id", column = "id"),
             @Result(property = "roles", column = "id", javaType = List.class,
-                many = @Many(select = "com.itheima.mapper.RoleMapper.findByUid"))
+                many = @Many(select = "RoleMapper.findByUid"))
     })
     public SysUser findByName(String username);
 

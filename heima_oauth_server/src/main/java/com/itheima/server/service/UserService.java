@@ -1,4 +1,4 @@
-package com.itheima.service;
+package com.itheima.server.service;
 
 import org.springframework.security.core.userdetails.UserDetailsService;
 

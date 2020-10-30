@@ -1,4 +1,4 @@
-package com.itheima.domain;
+package com.itheima.server.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;

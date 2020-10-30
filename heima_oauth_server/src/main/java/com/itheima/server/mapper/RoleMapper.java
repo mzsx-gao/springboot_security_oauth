@@ -1,6 +1,6 @@
-package com.itheima.mapper;
+package com.itheima.server.mapper;
 
-import com.itheima.domain.SysRole;
+import com.itheima.server.domain.SysRole;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
