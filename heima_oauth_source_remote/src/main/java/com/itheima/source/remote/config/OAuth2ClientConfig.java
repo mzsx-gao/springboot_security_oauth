@@ -1,4 +1,4 @@
-package com.itheima.source;
+package com.itheima.source.remote.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;

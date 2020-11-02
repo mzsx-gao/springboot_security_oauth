@@ -50,7 +50,7 @@
         </encoder>
     </appender>
     <root>
-        <level value="debug" />
+        <level value="info" />
         <appender-ref ref="STDOUT" />
         <!--<appender-ref ref="ASYNC_FILE" />-->
         <!--<appender-ref ref="ERROR" />-->

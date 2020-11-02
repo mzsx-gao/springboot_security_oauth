@@ -10,6 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>heima_oauth_source</module>
+        <module>heima_oauth_source_remote</module>
         <module>heima_oauth_server</module>
     </modules>
 

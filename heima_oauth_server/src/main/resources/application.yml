@@ -10,7 +10,7 @@ spring:
     #这个表示允许我们覆盖OAuth2放在容器中的bean对象，一定要配置
     allow-bean-definition-overriding: true
 mybatis:
-  type-aliases-package: com.itheima.domain
+  type-aliases-package: com.itheima.server.domain
   configuration:
     map-underscore-to-camel-case: true
 logging:

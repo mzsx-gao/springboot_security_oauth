@@ -14,7 +14,7 @@ public interface UserMapper{
     @Results({
             @Result(id = true, property = "id", column = "id"),
             @Result(property = "roles", column = "id", javaType = List.class,
-                many = @Many(select = "RoleMapper.findByUid"))
+                many = @Many(select = "com.itheima.server.mapper.RoleMapper.findByUid"))
     })
     public SysUser findByName(String username);
 

@@ -1,0 +1,33 @@
+server:
+  port: 9003
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/security?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true
+    username: root
+    password: root
+  main:
+    allow-bean-definition-overriding: true #允许我们自己覆盖spring放入到IOC容器的对象
+mybatis:
+  type-aliases-package: com.itheima.source.domain
+  configuration:
+    map-underscore-to-camel-case: true
+logging:
+  level:
+    com.itheima: debug
+
+#该配置是客户端访问认证服务器校验token
+security:
+  oauth2:
+    resource:
+      #授权服务的获取当前用户接口，它的返回值是Authentication类型，它会把返回值写到当前服务的请求头里
+      user-info-uri: http://localhost:9001/security/check
+      prefer-token-info: false
+
+    client:
+      client-id: heima_one
+      client-secret: 123
+      access-token-uri: http://localhost:9001/oauth/token
+#      grant-type: client_credentials,implicit,authorization_code,refresh_token,password
+      grant-type: client_credentials
+      scope: read,write

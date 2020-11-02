@@ -20,6 +20,9 @@ import org.springframework.security.oauth2.provider.token.store.JdbcTokenStore;
 
 import javax.sql.DataSource;
 
+/**
+ * 配置认证服务器
+ */
 @Configuration
 @EnableAuthorizationServer
 public class OauthServerConfig extends AuthorizationServerConfigurerAdapter {

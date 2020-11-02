@@ -39,7 +39,6 @@ public class OauthSourceConfig extends ResourceServerConfigurerAdapter {
      */
     @Override
     public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
-
         /**
          * 这里除以oauth2客户端校验权限有两种方式：
          * 1.客户端可以直接连上oauth2的数据库，则这里配置resources.resourceId("product_api").tokenStore(jdbcTokenStore());
@@ -47,12 +46,6 @@ public class OauthSourceConfig extends ResourceServerConfigurerAdapter {
          */
         resources.resourceId("product_api").tokenStore(jdbcTokenStore());
 //        super.configure(resources);
-
-        /**
-         * 这里通过重写OAuth2AuthenticationEntryPoint的commence方法可以自定义权限校验失败时的处理，方法是在
-         * OAuth2AuthenticationProcessingFilter#doFilter方法中调用的
-         */
-//        resources.authenticationEntryPoint(new RefreshTokenAuthenticationEntryPoint());
     }
 
     @Override

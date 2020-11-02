@@ -1,4 +1,4 @@
-package com.itheima.source.config;
+package com.itheima.source.remote.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
